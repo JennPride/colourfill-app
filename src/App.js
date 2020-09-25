@@ -40,7 +40,7 @@ class App extends React.Component {
     );
 
     this.setState({loading: true});
-    axios.post('http://localhost:3000/submitImage', formData, {responseType: 'blob'}).then((result) => {
+    axios.post('https://colorfill-server.herokuapp.com/submitImage', formData, {responseType: 'blob'}).then((result) => {
       const {error} = result.data;
       this.setState({loading: false, fileUpload: null});
       if (error) {

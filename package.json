@@ -18,7 +18,6 @@
     "react-file-download": "^0.3.5",
     "react-scripts": "3.4.3"
   },
-  "type": "module",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

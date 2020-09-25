@@ -8,10 +8,13 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.20.0",
+    "downloadjs": "^1.4.7",
     "express": "^4.17.1",
+    "js-file-download": "^0.4.12",
     "react": "^16.13.1",
     "react-devtools": "^4.8.2",
     "react-dom": "^16.13.1",
+    "react-file-download": "^0.3.5",
     "react-scripts": "3.4.3"
   },
   "type": "module",

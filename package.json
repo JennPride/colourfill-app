@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "author": "Jenn Pridemore",
   "private": true,
-  "main": "server.js",
+  "main": "src/index.js",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

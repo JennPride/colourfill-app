@@ -42,9 +42,9 @@ class App extends React.Component {
     this.setState({loading: true});
     axios.post('https://colorfill-server.herokuapp.com/submitImage', formData, {responseType: 'blob'}).then((result) => {
       const {error} = result.data;
-      this.setState({loading: false, fileUpload: null});
+      this.setState({loading: false});
       if (error) {
-        this.setState({error});
+        this.setState({error, fileUpload: null});
       } else {
         const {fileUpload, colorCount} = this.state;
         let data = new Blob([result.data]);
@@ -53,6 +53,7 @@ class App extends React.Component {
         link.download = `${colorCount}-${fileUpload.name}`;
         document.body.appendChild(link);
         link.click();
+        this.setState({fileUpload: null});
       }
     });
   }

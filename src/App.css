@@ -40,6 +40,21 @@ h2 {
   justify-content: center;
 }
 
+.App-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-results img {
+  width: 90%;
+}
+
+.App-results-buttons button {
+  margin: 10px 20px;
+}
+
 .App-input {
   text-align: center;
   margin: 24px;

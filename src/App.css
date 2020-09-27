@@ -22,16 +22,41 @@
 h1 {
   font-size: 60px;
   font-family: 'Abril Fatface', cursive;
+  position: fixed;
+  top: 10%;
 }
 
 h2 {
   font-size: 25px;
-
   font-family: 'Raleway', sans-serif;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+.App-blurb {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  color: white;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: white;
 }
 
 .App-container {
   width: 70vw;
+  position: fixed;
+  top: 35%;
 }
 
 .App-inputs {
@@ -48,7 +73,7 @@ h2 {
 }
 
 .App-results img {
-  width: 90%;
+  height: 40vh;
 }
 
 .App-results-buttons button {

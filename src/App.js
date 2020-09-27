@@ -95,7 +95,7 @@ class App extends React.Component {
               <div className="App-container">
                 {imgSrc ?
                   <div className="App-results">
-                    <img width="200px" src={imgSrc} alt="generated-color-block-image"/>
+                    <img src={imgSrc} alt="generated-color-block-image"/>
                     <div className="App-results-buttons">
                       <a href={imgSrc} download={newFileName}><button>Download</button></a>
                       <button onClick={() => this.resetApp()}> Try Another </button>
@@ -134,6 +134,12 @@ class App extends React.Component {
                 </div>
               )
             }
+            <div className="App-blurb">
+              <h3>Forever inspired by other amazing artists. <br/> Discover and support some of them: </h3>
+              <ul className="App-links">
+                <li><a href="https://society6.com/posters/digital?curator=designwithpride" rel="noopener noreferrer" target="_blank">Society6</a></li>
+              </ul>
+            </div>
           </header>
         </div>
     );

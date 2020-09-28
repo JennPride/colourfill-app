@@ -74,7 +74,7 @@ class App extends React.Component {
         return (customColors.map((customColor, i) =>
                 <div className="App-colorInput">
                     <label htmlFor={`${i}-customColors`}> Color #{i+1} </label>
-                    <HuePicker width="100%" color={customColor} onChangeComplete={(value) => this.updateColors(value.hex, i)}/>
+                    <HuePicker width="95%" color={customColor} onChangeComplete={(value) => this.updateColors(value.hex, i)}/>
                   {
                     this.isValidColor(customColor) &&
                     <div className="App-colorDisplay" style={{background: customColor}} />

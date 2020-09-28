@@ -26,6 +26,10 @@ h1 {
   margin-top: 10vh;
 }
 
+.hue-picker {
+  margin: 10px 2.5% 0px 0px !important;
+}
+
 h2 {
   font-size: 25px;
   font-family: 'Raleway', sans-serif;

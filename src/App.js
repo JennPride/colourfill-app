@@ -52,44 +52,27 @@ class App extends React.Component {
     return /^#[0-9A-F]{6}$/i.test(colorString);
   }
 
-  getColorInputsOld() {
-    const {customColors} = this.state;
-    return (customColors.map((customColor, i) =>
-          <div className="App-colorInput">
-              <label htmlFor={`${i}-customColors`}> Color #{i+1} </label>
-              <input placeholder="#E94057" value={customColor} id={`${i}-customColors`} type="text" onChange={(e) => {
-                this.updateColors(e.target.value, i)
-              }}/>
-              {
-                this.isValidColor(customColor) &&
-                <div className="App-colorDisplay" style={{background: customColor}} />
-              }
-          </div>
+  getColorInputs() {
+      const {customColors} = this.state;
+      return (customColors.map((customColor, i) =>
+              <div className="App-colorInput">
+                  <label htmlFor={`${i}-customColors`}> Color #{i+1} </label>
+                  <HuePicker width="95%" color={customColor} onChangeComplete={(value) => this.updateColors(value.hex, i)}/>
+                {
+                  this.isValidColor(customColor) &&
+                  <div className="App-colorDisplay" style={{background: customColor}} />
+                }
+                  <input placeholder="#HEXVAL" value={customColor} id={`${i}-customColors`} type="text" onChange={(e) => {
+                      this.updateColors(e.target.value, i)
+                  }}/>
+              </div>
+          )
       )
-    )
   }
-
-    getColorInputs() {
-        const {customColors} = this.state;
-        return (customColors.map((customColor, i) =>
-                <div className="App-colorInput">
-                    <label htmlFor={`${i}-customColors`}> Color #{i+1} </label>
-                    <HuePicker width="95%" color={customColor} onChangeComplete={(value) => this.updateColors(value.hex, i)}/>
-                  {
-                    this.isValidColor(customColor) &&
-                    <div className="App-colorDisplay" style={{background: customColor}} />
-                  }
-                    <input placeholder="#HEXVAL" value={customColor} id={`${i}-customColors`} type="text" onChange={(e) => {
-                        this.updateColors(e.target.value, i)
-                    }}/>
-                </div>
-            )
-        )
-    }
 
   updateColors(color, index) {
     const {customColors} = this.state;
-    customColors[index] = color;
+    customColors[index] = color.trim();
     this.setState({customColors});
   }
 
@@ -251,11 +234,13 @@ class App extends React.Component {
               )
             }
             </div>
-            <div className="App-blurb">
-              <h3>Forever inspired by other amazing artists. Discover and support some of them: </h3>
-              <ul className="App-links">
-                <li><a href="https://society6.com/posters/digital?curator=designwithpride" rel="noopener noreferrer" target="_blank">Society6</a></li>
-              </ul>
+            <div className="App-blurbContainer">
+              <div className="App-blurb">
+                <h3>Forever inspired by other amazing artists. Discover and support some of them: </h3>
+                <ul className="App-links">
+                  <li><a href="https://society6.com/posters/digital?curator=designwithpride" rel="noopener noreferrer" target="_blank">Society6</a></li>
+                </ul>
+              </div>
             </div>
           </header>
         </div>

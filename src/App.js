@@ -3,7 +3,6 @@ import './App.css';
 import axios from 'axios';
 import loadingImg from './rings.svg';
 import { HuePicker } from 'react-color';
-// var { Hue } = require('react-color/lib/components/common');
 
 class App extends React.Component {
 
@@ -16,7 +15,7 @@ class App extends React.Component {
       colorCount: 6,
       imgSrc: null,
       newFileName: null,
-      isAutoSelect: false,
+      isAutoSelect: true,
       customColors: ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
       colorError: null,
     };
@@ -75,7 +74,11 @@ class App extends React.Component {
         return (customColors.map((customColor, i) =>
                 <div className="App-colorInput">
                     <label htmlFor={`${i}-customColors`}> Color #{i+1} </label>
-                    <HuePicker width="100%" color={customColor} onChangeComplete={(value) => this.updateColors(value, i)}/>
+                    <HuePicker width="100%" color={customColor} onChangeComplete={(value) => this.updateColors(value.hex, i)}/>
+                  {
+                    this.isValidColor(customColor) &&
+                    <div className="App-colorDisplay" style={{background: customColor}} />
+                  }
                     <input placeholder="#HEXVAL" value={customColor} id={`${i}-customColors`} type="text" onChange={(e) => {
                         this.updateColors(e.target.value, i)
                     }}/>
@@ -85,9 +88,8 @@ class App extends React.Component {
     }
 
   updateColors(color, index) {
-      console.log(color);
     const {customColors} = this.state;
-    customColors[index] = color.hex;
+    customColors[index] = color;
     this.setState({customColors});
   }
 

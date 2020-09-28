@@ -106,8 +106,9 @@ ul {
   width: 20px;
   height: 20px;
   display: inline-flex;
-  margin-left: 10px;
   border: solid white 2px;
+  vertical-align: middle;
+  margin: 5px 10px 0px 0px;
 }
 
 .App-inputError {
@@ -136,6 +137,7 @@ input[type=text] {
   text-align: center;
   width: 100px;
   margin-top: 5px;
+  vertical-align: middle;
 }
 
 input[type=text]::placeholder {

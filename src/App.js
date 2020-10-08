@@ -45,7 +45,11 @@ class App extends React.Component {
 
   handleFileUpload(event) {
     const fileUpload = event.target.files[0];
-    this.setState({fileUpload});
+    if (fileUpload.name.split('.').pop() !== 'png') {
+      this.setState({error: 'Please upload a PNG'});
+    } else {
+      this.setState({fileUpload, error: null});
+    }
   }
 
   isValidColor(colorString) {

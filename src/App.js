@@ -18,6 +18,7 @@ class App extends React.Component {
       isAutoSelect: true,
       customColors: ['#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF', '#FFFFFF'],
       colorError: null,
+      fileError: null,
     };
   }
 
@@ -46,9 +47,9 @@ class App extends React.Component {
   handleFileUpload(event) {
     const fileUpload = event.target.files[0];
     if (fileUpload.name.split('.').pop() !== 'png') {
-      this.setState({error: 'Please upload a PNG'});
+      this.setState({fileError: 'Please upload a PNG'});
     } else {
-      this.setState({fileUpload, error: null});
+      this.setState({fileUpload, fileError: null});
     }
   }
 
@@ -89,7 +90,8 @@ class App extends React.Component {
       colorCount,
       fileUpload,
       isAutoSelect,
-      colorError
+      colorError,
+      fileError
     } = this.state;
 
     return (
@@ -104,6 +106,9 @@ class App extends React.Component {
                   }}/>
                   Upload PNG
                 </label>
+                {fileError &&
+                <p><b>Uh oh, looks like that isn't a PNG</b></p>
+                }
                 {!fileUpload ?
                     <p>No File Selected</p>
                     :
